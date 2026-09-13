@@ -75,6 +75,7 @@ export default function ApplicationsPage() {
               <thead className="bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3 font-medium">Application ID</th>
+                  <th className="px-4 py-3 font-medium">Employee Code</th>
                   <th className="px-4 py-3 font-medium">Leave Type</th>
                   <th className="px-4 py-3 font-medium">Start Date</th>
                   <th className="px-4 py-3 font-medium">End Date</th>
@@ -88,6 +89,7 @@ export default function ApplicationsPage() {
                 {applications.map((app) => (
                   <tr key={app.application_id} className="border-t border-slate-200">
                     <td className="px-4 py-3 font-medium text-slate-800">#{app.application_id}</td>
+                    <td className="px-4 py-3">{app.employee_code || user?.employee_code || 'Not-Available'}</td>
                     <td className="px-4 py-3">{app.leave_type || `Leave type #${app.leave_type_id}`}</td>
                     <td className="px-4 py-3">{new Date(app.start_date).toLocaleDateString()}</td>
                     <td className="px-4 py-3">{new Date(app.end_date).toLocaleDateString()}</td>
@@ -124,7 +126,7 @@ export default function ApplicationsPage() {
               <section>
                 <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">Applicant details</h3>
                 <dl className="space-y-3 text-sm">
-                  <div><dt className="text-slate-500">Employee code</dt><dd className="font-medium text-slate-900">{selectedApplication.employee_code || selectedApplication.employee_id}</dd></div>
+                  <div><dt className="text-slate-500">Employee Code</dt><dd className="font-medium text-slate-900">{selectedApplication.employee_code || 'Not-Available'}</dd></div>
                   <div><dt className="text-slate-500">Email</dt><dd className="font-medium text-slate-900">{selectedApplication.employee_email || 'Not provided'}</dd></div>
                   <div><dt className="text-slate-500">Phone</dt><dd className="font-medium text-slate-900">{selectedApplication.employee_phone || 'Not provided'}</dd></div>
                   <div><dt className="text-slate-500">Designation</dt><dd className="font-medium text-slate-900">{selectedApplication.designation || 'Not provided'}</dd></div>

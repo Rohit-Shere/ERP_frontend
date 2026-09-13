@@ -30,14 +30,14 @@ export default function EmployeeDashboardPage() {
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-slate-500">Good morning</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-slate-500">Hello</p>
               <h1 className="mt-2 text-3xl font-semibold text-slate-900">{user?.name || 'Employee'}</h1>
             </div>
             <div className="grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
-              <div><span className="font-medium text-slate-500">Employee ID:</span> {user?.employee_id || 'EMP-101'}</div>
-              <div><span className="font-medium text-slate-500">Department:</span> {user?.department || 'Computer Science'}</div>
-              <div><span className="font-medium text-slate-500">Designation:</span> {user?.designation || 'Assistant Professor'}</div>
-              <div><span className="font-medium text-slate-500">Category:</span> {user?.category || 'Teaching - Non-Vacational'}</div>
+              <div><span className="font-medium text-slate-500">Employee Code:</span> {user?.employee_code || 'Not-Available'}</div>
+              <div><span className="font-medium text-slate-500">Department:</span> {user?.department || 'Not-Available'}</div>
+              <div><span className="font-medium text-slate-500">Designation:</span> {user?.designation || 'Not-Available'}</div>
+              <div><span className="font-medium text-slate-500">Category:</span> {user?.category || 'Not-Available'}</div>
             </div>
           </div>
         </div>

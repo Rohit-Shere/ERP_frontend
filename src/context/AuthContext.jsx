@@ -31,6 +31,7 @@ export function AuthProvider({ children }) {
 
         const mappedUser = {
           employee_id: profile.employee_id || me.employee_id,
+          employee_code: profile.employee_code,
           user_id: me.user_id,
           role: me.roles?.[0] || 'EMPLOYEE',
           name: [firstName, lastName].filter(Boolean).join(' ') || 'Authenticated User',
@@ -64,6 +65,7 @@ export function AuthProvider({ children }) {
     const lastName = profile.last_name || ''
     const mappedUser = {
       employee_id: profile.employee_id || me.employee_id,
+      employee_code: profile.employee_code,
       user_id: me.user_id,
       role: me.roles?.[0] || 'EMPLOYEE',
       name: [firstName, lastName].filter(Boolean).join(' ') || 'Authenticated User',

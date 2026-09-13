@@ -35,7 +35,7 @@ export default function Sidebar() {
   const items = navConfig[user?.role] || navConfig.EMPLOYEE
 
   return (
-    <aside className="hidden w-72 flex-col border-r border-slate-200 bg-slate-900 text-slate-100 lg:flex">
+    <aside className="flex h-screen w-72 flex-col border-r border-slate-200 bg-slate-900 text-slate-100">
       <div className="flex items-center gap-3 border-b border-slate-800 px-6 py-5">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 font-semibold text-white">ERP</div>
         <div>

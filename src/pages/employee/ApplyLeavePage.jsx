@@ -6,9 +6,12 @@ import PageHeader from '../../components/common/PageHeader'
 import Button from '../../components/common/Button'
 import { leaveApi } from '../../api/leaveApi'
 import { leaveTypes } from '../../constants/mockData'
+import { useAuth } from '../../context/AuthContext'
+import { downloadLeaveApplicationPdf } from '../../utils/leaveApplicationPdf'
 
 export default function ApplyLeavePage() {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState(null)
   const { register, handleSubmit, watch, formState: { errors } } = useForm({
@@ -30,13 +33,15 @@ export default function ApplyLeavePage() {
     setSubmitError(null)
 
     try {
-      await leaveApi.createApplication({
+      const response = await leaveApi.createApplication({
         leave_type_id: Number(values.leaveTypeId),
         start_date: values.startDate,
         end_date: values.endDate,
         reason: values.reason,
         station_leaving: values.stationLeaving === 'yes',
       })
+      const selectedLeaveType = leaveTypes.find((leaveType) => leaveType.id === Number(values.leaveTypeId))
+      downloadLeaveApplicationPdf(response.data, user, selectedLeaveType?.name)
       navigate('/employee/applications', { replace: true })
     } catch (error) {
       setSubmitError(error.response?.data?.detail || 'Unable to submit the leave application.')

@@ -8,17 +8,17 @@ export default function DashboardLayout({ children, title }) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-800">
-      <div className="flex min-h-screen">
+    <div className="h-screen overflow-hidden bg-slate-100 text-slate-800">
+      <div className="flex h-screen">
         {mobileOpen && (
           <div className="fixed inset-0 z-30 bg-slate-950/40 lg:hidden" onClick={() => setMobileOpen(false)} />
         )}
 
-        <div className={`fixed inset-y-0 left-0 z-40 transition-transform duration-200 lg:relative lg:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+        <div className={`fixed inset-y-0 left-0 z-40 transition-transform duration-200 lg:sticky lg:top-0 lg:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
           <Sidebar />
         </div>
 
-        <div className="flex min-h-screen flex-1 flex-col">
+        <div className="flex h-screen min-w-0 flex-1 flex-col">
           <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/90 backdrop-blur">
             <div className="flex items-center justify-between gap-3 px-4 py-3 md:px-6">
               <div className="flex items-center gap-3">
@@ -54,7 +54,7 @@ export default function DashboardLayout({ children, title }) {
             </div>
           </header>
 
-          <main className="flex-1 p-4 md:p-6">{children}</main>
+          <main className="min-h-0 flex-1 overflow-y-auto p-4 md:p-6">{children}</main>
         </div>
       </div>
     </div>

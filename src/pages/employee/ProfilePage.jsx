@@ -21,11 +21,11 @@ export default function ProfilePage() {
         </div>
 
         <div className="mt-6 grid gap-5 md:grid-cols-2">
-          <div><p className="text-sm text-slate-500">Employee ID</p><p className="mt-1 font-medium text-slate-900">{user?.employee_id}</p></div>
+          <div><p className="text-sm text-slate-500">Employee Code</p><p className="mt-1 font-medium text-slate-900">{user?.employee_code || 'Not-Available'}</p></div>
           <div><p className="text-sm text-slate-500">Email</p><p className="mt-1 font-medium text-slate-900">{user?.email}</p></div>
-          <div><p className="text-sm text-slate-500">Department</p><p className="mt-1 font-medium text-slate-900">{user?.department}</p></div>
-          <div><p className="text-sm text-slate-500">Designation</p><p className="mt-1 font-medium text-slate-900">{user?.designation}</p></div>
-          <div><p className="text-sm text-slate-500">Employee Category</p><p className="mt-1 font-medium text-slate-900">{user?.category}</p></div>
+          <div><p className="text-sm text-slate-500">Department</p><p className="mt-1 font-medium text-slate-900">{user?.department || 'Not-Available'}</p></div>
+          <div><p className="text-sm text-slate-500">Designation</p><p className="mt-1 font-medium text-slate-900">{user?.designation || 'Not-Available'}</p></div>
+          <div><p className="text-sm text-slate-500">Employee Category</p><p className="mt-1 font-medium text-slate-900">{user?.category || 'Not-Available'}</p></div>
           <div><p className="text-sm text-slate-500">Joining Date</p><p className="mt-1 font-medium text-slate-900">{user?.joining_date || 'Not available'}</p></div>
         </div>
       </div>
